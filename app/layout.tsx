@@ -1,5 +1,8 @@
 import './globals.css'
 import ReactQuery from './util/ReactQuery/ReactQuery'
+import DarkMode from '@/components/Common/DarkMode/DarkMode'
+import DarkModeProviders from '@/components/Common/DarkMode/DarkModeProvider'
+import TopButton from '@/components/Common/TopButton'
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,9 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <DarkModeProviders>
       <ReactQuery>
         {children}
       </ReactQuery>
+      <DarkMode />
+      <TopButton />
+      </DarkModeProviders>
       </body>
     </html>
   )
