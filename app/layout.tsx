@@ -2,6 +2,8 @@ import './globals.css'
 import ReactQuery from './util/ReactQuery/ReactQuery'
 import DarkMode from '@/components/Common/DarkMode/DarkMode'
 import DarkModeProviders from '@/components/Common/DarkMode/DarkModeProvider'
+import Footers from '@/components/Common/Footers'
+import Headers from '@/components/Common/Headers'
 import TopButton from '@/components/Common/TopButton'
 
 export const metadata = {
@@ -18,9 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
       <DarkModeProviders>
+      <Headers />
       <ReactQuery>
         {children}
       </ReactQuery>
+      <Footers />
       <DarkMode />
       <TopButton />
       </DarkModeProviders>

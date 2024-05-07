@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export const metadata = {
 	title: "Error!",
 };
@@ -10,14 +13,14 @@ export default function Notfound() {
         Error Page
       </h1>
       <p className='text-center text-xl text-red-500 font-bold underline py-6'>
-        귀하에게 이 페이지 접근 권한은 없습니다, 즉시 이전 페이지로
+        접근 권한이 없습니다, 이전 페이지로
         돌아가십시오.
       </p>
       <Link
         href='/'
         className='text-center text-red-500 font-bold bg-black h-10 py-2 rounded-xl'
       >
-        메인 페이지로 돌아가기
+        <FontAwesomeIcon icon={faRotateRight} className='px-2' />메인 페이지로 돌아가기
       </Link>
     </section>
   )
