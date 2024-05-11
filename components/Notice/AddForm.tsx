@@ -1,5 +1,8 @@
 // 공지사항을 추가하는 Form
 'use client'
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function AddForm() {
 	return (
 		<>
@@ -20,7 +23,7 @@ export default function AddForm() {
 				<textarea className="w-11/12 h-96 border border-slate-300 rounded-md resize-none" placeholder="공지사항의 본문을 입력하시오." />
 
 				<input className="w-11/12 h-8 border border-slate-300 rounded-md my-1"  placeholder="작성하는 사용자 관련 정보를 받는 부분" />
-				<button className="btn btn-neutral cursor-pointer m-2 w-11/12" type="submit">공지사항 추가</button>
+				<button className="btn btn-neutral cursor-pointer m-2 w-11/12" type="submit"><FontAwesomeIcon icon={faPlus} className="px-2" />공지사항 추가</button>
 			</form>
 		</>
 	)

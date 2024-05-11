@@ -1,4 +1,7 @@
 'use client'
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function SignUpForm () {
 	return (
 		<>
@@ -18,7 +21,8 @@ export default function SignUpForm () {
 				<label className="font-bold p-2 text-blue-500 dark:text-slate-500">Profile Image</label>
 				<input type="file" className="file-input w-full max-w-md" />
 
-				<button className="btn btn-neutral cursor-pointer m-2 w-11/12" type="submit">회원가입</button>
+				<button className="btn btn-neutral cursor-pointer m-2 w-11/12" type="submit"><FontAwesomeIcon icon={faPlus} className="px-2" />회원가입</button>
+				{/* 이 부분은 이미지를 제외한 모든 값에 입력값이 들어가면 활성화 하거나, 조건부 렌더링으로 보여지도록? */}
 			</form>
 		</>
 	)

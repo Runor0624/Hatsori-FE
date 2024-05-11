@@ -8,6 +8,9 @@ export default function Mypage () {
 
 				<label className="font-bold p-2 text-blue-500 dark:text-slate-500">Nickname</label>
 				<input className="w-11/12 h-8 border border-slate-300 rounded-md m-1" placeholder="NickName." />
+
+				<label className="font-bold p-2 text-blue-500 dark:text-slate-500">CreateDate</label>
+				<input className="w-11/12 h-8 border border-slate-300 rounded-md m-1" placeholder="CreateDate" />
 			</div>
 		</>
 	)

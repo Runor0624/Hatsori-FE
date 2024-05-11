@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from "next/navigation"
-import { faUser, faUserPlus, faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faUserPlus, faPowerOff, faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Headers () {
@@ -13,6 +13,12 @@ export default function Headers () {
 				<a className="btn btn-ghost text-xl text-blue-500 dark:text-slate-500" onClick={() => router.push('/')}>Logo</a>
 			</div>
 			<div className="flex-none">
+
+				<div className="indicator m-2">
+				<span className="indicator-item badge badge-secondary">99+</span> 
+				<button className="btn bg-inherit border-none"><FontAwesomeIcon icon={faBell} className="text-white" /></button>
+				</div>
+
 				<div className="dropdown dropdown-end">
 				<div tabIndex={0} role="button" className="btn btn-ghost">
 					<div className="w-10">

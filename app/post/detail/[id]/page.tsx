@@ -5,7 +5,6 @@ import DetailPost from "@/components/Post/DetailPost"
 export default function page () {
 	return (
 		<>
-			<h1>글의 상세 페이지</h1>
 			<DetailPost />
 		</>
 	)
