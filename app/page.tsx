@@ -1,3 +1,4 @@
+import Nodata from "@/components/Common/Nodata";
 import AddPostButton from "@/components/Post/AddPostButton";
 import Link from "next/link";
 
@@ -27,14 +28,7 @@ export default function Home() {
 
       <div className="flex flex-col justify-center items-center m-auto">
         <h1 className="p-4 text-red-600">최신 글 일부를 보여주는 부분</h1>
-        <section className="text-red-600 w-max border border-blue-500 m-4">
-          <div className="grid grid-cols-3">
-            <h1>글 제목</h1>
-            <p>작성일, 작성자</p>
-            <p>이미지가 있으면 이미지 아이콘</p>
-          </div>
-          <p>좋아요, 싫어요, 댓글 카운트</p>
-        </section>
+        <Nodata />
       </div>
 
       <AddPostButton />
