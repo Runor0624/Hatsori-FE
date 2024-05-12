@@ -10,7 +10,7 @@ export default function Headers () {
 		<>
 			<div className="navbar border-b-2 border-blue-200 mb-2">
 			<div className="flex-1">
-				<a className="btn btn-ghost text-xl text-blue-500 dark:text-slate-500" onClick={() => router.push('/')}>Logo</a>
+				<a className="btn btn-ghost text-xl text-blue-500 dark:text-slate-500" onClick={() => router.push('/')}>Hatsori</a>
 			</div>
 			<div className="flex-none">
 
