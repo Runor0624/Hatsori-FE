@@ -3,9 +3,25 @@
 import { useRouter } from "next/navigation"
 import { faUser, faUserPlus, faPowerOff, faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAuthStore } from "@/app/util/Zustand/Zustand";
 
 export default function Headers () {
 	const router = useRouter()
+
+	const { userId, authority, nickname, id, logout } = useAuthStore((state) => ({
+		userId: state.userId,
+		authority: state.authority,
+		nickname: state.nickname,
+		id: state.id,
+		logout: state.logout,
+	}))
+
+	const handleLogout = () => {
+		logout()
+		alert('로그아웃 성공!')
+		router.push('/')
+	  }
+
 	return (
 		<>
 			<div className="navbar border-b-2 border-blue-200 mb-2">
@@ -29,7 +45,7 @@ export default function Headers () {
 					<li onClick={() => router.push('/mypage/1')}><a><FontAwesomeIcon icon={faUser} /> MyPage</a></li>
 					<li onClick={() => router.push('/signup')}><a><FontAwesomeIcon icon={faUserPlus} />SignUp</a></li>
 					<li onClick={() => router.push('/login')}><a><FontAwesomeIcon icon={faUser} />Login</a></li>
-					<li><a><FontAwesomeIcon icon={faPowerOff} />Logout</a></li>
+					<li><a onClick={handleLogout}><FontAwesomeIcon icon={faPowerOff} />Logout</a></li>
 				</ul>
 				</div>
 			</div>
