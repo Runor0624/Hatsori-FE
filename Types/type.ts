@@ -26,3 +26,12 @@ export interface LoginTypeinfomation {
     userId: string
 	password: string
 }
+
+export interface PostAddTypeinfomation {
+	userId: number;
+	title: string;
+	description: string;
+	postimage?:string | File | null | any
+	likecount: number;
+	dislikecount: string
+}

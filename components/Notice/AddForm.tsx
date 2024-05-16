@@ -74,7 +74,7 @@ export default function AddForm() {
 				<p className={`${overDescriptionLimit ? 'text-red-500 font-bold' : 'text-white font-bold'}`}>Count : ({textDescriptionLength}/300)</p>
 
 				{id !== 0 &&
-				<input {...register("userId", { valueAsNumber: true })} value={id ?? ''} readOnly className="w-11/12 h-8 border border-slate-300 rounded-md my-1"  placeholder="작성하는 사용자 관련 정보를 받는 부분" />
+				<input {...register("userId", { valueAsNumber: true })} value={id ?? ''} readOnly hidden className="w-11/12 h-8 border border-slate-300 rounded-md my-1"  placeholder="작성하는 사용자 관련 정보를 받는 부분" />
 				}
 				<button className="btn btn-neutral cursor-pointer m-2 w-11/12" type="submit"><FontAwesomeIcon icon={faPlus} className="px-2" />공지사항 추가</button>
 			</form>

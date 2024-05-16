@@ -3,6 +3,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
 import { VisitTypeinfomation } from "@/Types/type";
+import { useAuthStore } from "@/app/util/Zustand/Zustand";
 
 interface DeleteButtonProps {
 	item: VisitTypeinfomation; 
@@ -10,6 +11,9 @@ interface DeleteButtonProps {
 
 export default function DeleteVisitButton(props: DeleteButtonProps) {
 	const { item } = props;
+  const { authority } = useAuthStore((state) => ({
+		authority: state.authority,
+	}))
 
 	const handleDelete = async (id:number) => {
         const confirmDelete = confirm("진짜 삭제할건가요?");
@@ -26,11 +30,13 @@ export default function DeleteVisitButton(props: DeleteButtonProps) {
 
 	return (
 		<>
+    {authority === `${process.env.NEXT_PUBLIC_ADMIN}` && (
 		    <button
           	onClick={() => handleDelete(item.id)}
         	>
           <FontAwesomeIcon icon={faX} className="px-2" /> 삭제
         </button>
+    )}
 		</>
 	)
 }

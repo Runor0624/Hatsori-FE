@@ -18,7 +18,7 @@ const VisitList = async () => {
 			<div className="card-body">
 				<h2 className="text-2xl text-center font-bold py-2">{item.title}</h2>
 				<p className="text-center">{item.description}</p>
-				<p className="text-center">UserIP : {(item.userIp).slice(0,7)}</p>
+				<p className="text-center text-sm text-slate-300 font-bold">UserIP : {(item.userIp).slice(0,7)}</p>
 				<p className="text-center text-sm text-slate-300 font-bold py-2">Time :  {moment(item.createDate).format("YYYY-MM-DD HH:mm:ss")}</p>
 				<DeleteVisitButton item={item} />
 			</div>
