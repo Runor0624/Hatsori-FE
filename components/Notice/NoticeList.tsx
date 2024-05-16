@@ -1,15 +1,41 @@
+import moment from "moment"
+import DeleteNoticeButton from "./DeleteNoticeButton";
 
-export default function NoticeList () {
+const fetchPosts = async () => {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/notices`, {
+	  cache: "no-store",
+	});
+	return response.json();
+};
+
+interface NoticeAddType {
+	userId: number;
+	title: string
+	description: string
+	createDate: string
+	id: number
+}
+
+const NoticeList = async () => {
+	const data = await fetchPosts();
 	return (
 		<>
+		{data && data.map((item:NoticeAddType) => (
+			<div  key={item.id}>
+
 			<div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-200">
 			<div className="collapse-title text-xl font-medium">
-				공지사항 예제
+				{item.title}
 			</div>
 			<div className="collapse-content"> 
-				<p>공지사항 예제</p>
+				<p>{item.description}</p>
 			</div>
 			</div>
+				<DeleteNoticeButton item={item} />
+
+			</div>
+		))}
 		</>
 	)
 }
+export default NoticeList

@@ -12,7 +12,7 @@ interface SignUpTypes {
 	nickname: string
 	password: string
 	authority: string
-	userprofileimage: string | File | null
+	userprofileimage: string | File | null | any
 }
 export default function SignUpForm () {
 	const router = useRouter()
@@ -28,13 +28,14 @@ export default function SignUpForm () {
 	  formData.append('password', data.password);
 	  formData.append('nickname', data.nickname);
 	  formData.append('authority', data.authority)
-	  
-	  if(data.userprofileimage) {
-		formData.append('userprofileimage', data.userprofileimage);
+	 
+	  if(data.userprofileimage[0]) {
+		formData.append('userprofileimage', data.userprofileimage[0]);
 	  }
-  
+
 	  try {
 		const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/user/signup`, formData);
+
 		alert("회원가입을 환영합니다!")
 		router.push('/login')
 	  } catch(error) {
@@ -100,7 +101,7 @@ export default function SignUpForm () {
 				<input  {...register('authority', {required: true})} value={"User"} hidden className="w-11/12 h-8 border border-slate-300 rounded-md" placeholder="사용할 권한을 입력하시오." />
 
 				<label className="font-bold p-2 text-blue-500 dark:text-slate-500">Profile Image</label>
-				<input type="file" {...register('userprofileimage')} onChange={handleImageSelect}  className="file-input w-full max-w-md" />
+				<input type="file" {...register('userprofileimage')} onChange={handleImageSelect} accept = "image/*" className="file-input w-full max-w-md" />
 
 				{imagePreview && 
 					<Image src={imagePreview} width={200} height={200} className="my-2 rounded-lg" alt="User Profile Image Preview" />  

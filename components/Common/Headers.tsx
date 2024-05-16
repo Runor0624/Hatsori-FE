@@ -21,7 +21,6 @@ export default function Headers () {
 		alert('로그아웃 성공!')
 		router.push('/')
 	  }
-
 	return (
 		<>
 			<div className="navbar border-b-2 border-blue-200 mb-2">
@@ -30,11 +29,6 @@ export default function Headers () {
 			</div>
 			<div className="flex-none">
 
-				<div className="indicator m-2">
-				<span className="indicator-item badge badge-secondary">99+</span> 
-				<button className="btn bg-inherit border-none"><FontAwesomeIcon icon={faBell} className="text-white" /></button>
-				</div>
-
 				<div className="dropdown dropdown-end">
 				<div tabIndex={0} role="button" className="btn btn-ghost">
 					<div className="w-10">
@@ -42,10 +36,9 @@ export default function Headers () {
 					</div>
 				</div>
 				<ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-					<li onClick={() => router.push('/mypage/1')}><a><FontAwesomeIcon icon={faUser} /> MyPage</a></li>
-					<li onClick={() => router.push('/signup')}><a><FontAwesomeIcon icon={faUserPlus} />SignUp</a></li>
-					<li onClick={() => router.push('/login')}><a><FontAwesomeIcon icon={faUser} />Login</a></li>
-					<li><a onClick={handleLogout}><FontAwesomeIcon icon={faPowerOff} />Logout</a></li>
+					{authority.length >= 1 && userId.length >= 1 &&(<li onClick={() => router.push(`/mypage/${id}`)}><a><FontAwesomeIcon icon={faUser} /> MyPage</a></li>)}
+					{authority.length === 0 && userId.length === 0 && <li onClick={() => router.push('/login')}><a><FontAwesomeIcon icon={faUser} />Login</a></li>}
+					{authority.length >= 1 && userId.length >= 1 && (<li><a onClick={handleLogout}><FontAwesomeIcon icon={faPowerOff} />Logout</a></li>)}
 				</ul>
 				</div>
 			</div>
