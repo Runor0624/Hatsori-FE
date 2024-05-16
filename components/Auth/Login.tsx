@@ -3,17 +3,14 @@ import { useAuthStore } from '@/app/util/Zustand/Zustand'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import { LoginTypeinfomation } from '@/Types/type'
 
-interface LoginType {
-	userId: string
-	password: string
-}
 export default function LoginForm () {
 	const router = useRouter()
     const { login } = useAuthStore()
 
-    const { register, handleSubmit, control, formState: { errors } } = useForm<LoginType>()
-      const onSubmit = async (data: LoginType) => {
+    const { register, handleSubmit, control, formState: { errors } } = useForm<LoginTypeinfomation>()
+      const onSubmit = async (data: LoginTypeinfomation) => {
         try {
           const response = await axios.post(
             `${process.env.NEXT_PUBLIC_API_URL}/user/login`,

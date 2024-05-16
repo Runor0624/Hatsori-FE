@@ -1,6 +1,6 @@
 import moment from "moment"
 import DeleteNoticeButton from "./DeleteNoticeButton";
-
+import { NoticeAddTypeinfomation } from "@/Types/type";
 const fetchPosts = async () => {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/notices`, {
 	  cache: "no-store",
@@ -8,19 +8,12 @@ const fetchPosts = async () => {
 	return response.json();
 };
 
-interface NoticeAddType {
-	userId: number;
-	title: string
-	description: string
-	createDate: string
-	id: number
-}
 
 const NoticeList = async () => {
 	const data = await fetchPosts();
 	return (
 		<>
-		{data && data.map((item:NoticeAddType) => (
+		{data && data.map((item:NoticeAddTypeinfomation) => (
 			<div  key={item.id}>
 
 			<div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-200">

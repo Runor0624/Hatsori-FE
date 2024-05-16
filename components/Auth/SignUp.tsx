@@ -6,22 +6,16 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { SignUpTypeinfomation } from "@/Types/type";
 
-interface SignUpTypes {
-	userId: string
-	nickname: string
-	password: string
-	authority: string
-	userprofileimage: string | File | null | any
-}
 export default function SignUpForm () {
 	const router = useRouter()
 
 	/* 회원가입 관련 부분 */
-	const { register, handleSubmit, formState: { errors } } = useForm<SignUpTypes>();
+	const { register, handleSubmit, formState: { errors } } = useForm<SignUpTypeinfomation>();
 	const [imagePreview, setImagePreview] = useState<string>();
   
-	const onSubmit = async (data: SignUpTypes) => {
+	const onSubmit = async (data: SignUpTypeinfomation) => {
 	  const formData = new FormData();
   
 	  formData.append('userId', data.userId);

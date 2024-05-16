@@ -2,18 +2,10 @@
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
-import { VisitTypeinfomation } from "@/Types/type";
-
-interface NoticeAddType {
-	userId: number;
-	title: string
-	description: string
-	createDate: string
-	id: number
-}
+import { NoticeAddTypeinfomation } from "@/Types/type";
 
 interface DeleteButtonProps {
-	item: NoticeAddType; 
+	item: NoticeAddTypeinfomation; 
 }
 
 export default function DeleteNoticeButton(props: DeleteButtonProps) {
