@@ -11,7 +11,6 @@ export default function Footers () {
 					<Link href='https://github.com/Runor0624' className="font-bold text-blue-500 dark:text-slate-500"><FontAwesomeIcon icon={faLink} className="px-2" />GitHub</Link>
 					<Link href='/notices' className="font-bold cursor-pointer text-blue-500 dark:text-slate-500"><FontAwesomeIcon icon={faCircleInfo} className="px-2" />Notice</Link>
 					<Link href='/visit' className="font-bold cursor-pointer text-blue-500 dark:text-slate-500"><FontAwesomeIcon icon={faBook} className="px-2" />방명록</Link>
-					<Link href='/visit' className="font-bold cursor-pointer text-blue-500 dark:text-slate-500"><FontAwesomeIcon icon={faComment} className="px-2" />TMI</Link>
 				</div>
 			</footer>
 		</>

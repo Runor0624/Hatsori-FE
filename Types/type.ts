@@ -35,3 +35,14 @@ export interface PostAddTypeinfomation {
 	likecount: number;
 	dislikecount: string
 }
+
+export interface PostTypeinfomation {
+	id: number
+	userid: number
+	title:string
+	description : string
+	postimage?: string | File | null | any
+	likecount : string | number
+	dislikecount : string
+	createDate?: string
+}
