@@ -33,6 +33,7 @@ export default function DeleteVisitButton(props: DeleteButtonProps) {
     {authority === `${process.env.NEXT_PUBLIC_ADMIN}` && (
 		    <button
           	onClick={() => handleDelete(item.id)}
+            className="btn btn-error"
         	>
           <FontAwesomeIcon icon={faX} className="px-2" /> 삭제
         </button>
