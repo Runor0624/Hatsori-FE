@@ -8,10 +8,9 @@ import { useAuthStore } from "@/app/util/Zustand/Zustand";
 export default function Headers () {
 	const router = useRouter()
 
-	const { userId, authority, nickname, id, logout } = useAuthStore((state) => ({
+	const { userId, authority, id, logout } = useAuthStore((state) => ({
 		userId: state.userId,
 		authority: state.authority,
-		nickname: state.nickname,
 		id: state.id,
 		logout: state.logout,
 	}))

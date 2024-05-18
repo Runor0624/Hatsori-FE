@@ -47,11 +47,7 @@ export default function AddForm() {
 	  const { id } = useAuthStore((state) => ({
 		id: Number(state.id)
 		}))
-	/* 텍스트 카운트 제한
-	  	제목 : 20
-		본문 : 300
-		좋아요 / 싫어요 : 5 통일
-	*/
+	
 	/* 텍스트 카운트 */
 	const [textTitleLength, setTextTitleLength] = useState(0); {/* title 텍스트 카운트 */}
 

@@ -51,8 +51,8 @@ export default function DetailPost () {
 			</div>
 			
 			<div className="w-2/3 flex flex-row justify-center items-center m-auto my-2">
-				<LikeButton post={data} />
-				<DisLikeButton post={data} />
+				<LikeButton likecount={data?.likecount} postId={data.id} />
+				<DisLikeButton postId={data?.id} dislikecount={data?.dislikecount} />
 			</div>
 		</>
 	)
