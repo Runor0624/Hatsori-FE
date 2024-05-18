@@ -64,14 +64,16 @@ export default function AddForm() {
 		/* 텍스트 카운트 */
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)} className="m-auto flex flex-col justify-center items-center border border-blue-500 rounded-md min-h-screen w-2/3 lg:w-1/3">
+			<form onSubmit={handleSubmit(onSubmit)} className="m-auto flex flex-col justify-center items-center min-h-screen w-2/3 lg:w-1/3">
 				<label className="font-bold p-2 text-blue-500 dark:text-slate-500">제목</label>
 				<input {...register("title", { required: true })} onChange={handleTitleChange} className="w-11/12 h-8 border border-slate-300 rounded-md" placeholder="공지사항의 제목을 입력하시오." />
 				<p className={`${overLimit ? 'text-red-500 font-bold' : 'text-white font-bold'}`}>Count : ({textLength}/40)</p>
+                {errors.title && <p className="text-center text-red-600 font-bold py-2">Title는 필수 값입니다.</p>}
 
 				<label className="font-bold p-2 text-blue-500 dark:text-slate-500">본문</label>
 				<textarea {...register("description", { required: true })} onChange={handleDescriptionChange} className="w-11/12 h-96 border border-slate-300 rounded-md resize-none" placeholder="공지사항의 본문을 입력하시오." />
 				<p className={`${overDescriptionLimit ? 'text-red-500 font-bold' : 'text-white font-bold'}`}>Count : ({textDescriptionLength}/300)</p>
+                {errors.description && <p className="text-center text-red-600 font-bold py-2">Description는 필수 값입니다.</p>}
 
 				{id !== 0 &&
 				<input {...register("userId", { valueAsNumber: true })} value={id ?? ''} readOnly hidden className="w-11/12 h-8 border border-slate-300 rounded-md my-1"  placeholder="작성하는 사용자 관련 정보를 받는 부분" />
