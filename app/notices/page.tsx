@@ -1,4 +1,5 @@
 import AddNoticeButton from "@/components/Notice/AddNoticeButton";
+import NoticeCount from "@/components/Notice/NoticeCount";
 import NoticeList from "@/components/Notice/NoticeList";
 
 export const metadata = {
@@ -9,7 +10,7 @@ export default function page () {
 	return (
 		<>
 			<h1 className="text-center text-red-600 text-xl font-bold py-4">관리자가 작성한 공지사항 입니다.</h1>
-
+			<NoticeCount />
 			<NoticeList />
 			<AddNoticeButton />
 		</>

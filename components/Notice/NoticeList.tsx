@@ -1,7 +1,8 @@
-import moment from "moment"
+import Nodata from "../Common/Nodata";
 import DeleteNoticeButton from "./DeleteNoticeButton";
 import { NoticeAddTypeinfomation } from "@/Types/type";
-const fetchPosts = async () => {
+
+const fetchNoticeList = async () => {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/notices`, {
 	  cache: "no-store",
 	});
@@ -10,10 +11,10 @@ const fetchPosts = async () => {
 
 
 const NoticeList = async () => {
-	const data = await fetchPosts();
+	const data = await fetchNoticeList();
 	return (
 		<>
-		{data && data.map((item:NoticeAddTypeinfomation) => (
+		{data.length !== 0 && data.map((item:NoticeAddTypeinfomation) => (
 			<div className="flex flex-row justify-between" key={item.id}>
 
 			<div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-200">
@@ -28,6 +29,8 @@ const NoticeList = async () => {
 
 			</div>
 		))}
+
+		{data.length === 0 && <Nodata />}
 		</>
 	)
 }

@@ -1,8 +1,9 @@
 import moment from "moment"
 import { VisitTypeinfomation } from "@/Types/type";
 import DeleteVisitButton from "./DeleteVisitButton";
+import Nodata from "../Common/Nodata";
 
-const fetchPosts = async () => {
+const fetchVisitPosts = async () => {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/visit`, {
 	  cache: "no-store",
 	});
@@ -10,10 +11,11 @@ const fetchPosts = async () => {
 };
 
 const VisitList = async () => {
-	const data = await fetchPosts();
+	const data = await fetchVisitPosts();
+
 	return (
 		<div className="grid grid-cols-4 gap-2 w-max">
-		{data && data.map((item:VisitTypeinfomation) => (
+		{data.length !== 0 && data.map((item:VisitTypeinfomation) => (
 			<div className="card bg-base-100 shadow-xl m-2" key={item.id}>
 			<div className="card-body">
 				<h2 className="text-2xl text-center font-bold py-2">{item.title}</h2>
@@ -24,6 +26,8 @@ const VisitList = async () => {
 			</div>
 			</div>
 		))}
+
+		{data.length === 0 && <Nodata />}
 		</div>
 	)
 }
